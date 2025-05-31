@@ -1,7 +1,6 @@
 function getWeather() {
-    let city = document.getElementById('city').value; // .value lagana zaroori hai
+    let city = document.getElementById('city').value;
     let apiKey = "1b4949d7be92ccbd520737b27c355edd";
-
     let url = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric`;
 
     fetch(url)
@@ -16,17 +15,20 @@ function getWeather() {
             let temp = data.main.temp;
             let condition = data.weather[0].main;
             let name = data.name;
+            let icon = data.weather[0].icon;
+            // let iconUrl = `https://openweathermap.org/img/wn/${icon}@2x.png`;
 
             document.getElementById("output").innerHTML =
-                "<b>📍 City:</b> " + name + "<br>" +
-                "<b>🌡️ Temperature:</b> " + temp + "°C<br>" +
-                "<b>🌈 Weather:</b> " + condition;
+                `<b>📍 City:</b> ${name} <br>
+                 <b>🌡️ Temperature:</b> ${temp}°C <br>
+                 <b>🌈 Weather:</b> ${condition} <br>`;
+
+                //   <img src="${iconUrl}" alt="${condition} icon">;
         })
         .catch(function () {
-            document.getElementById("output").innerHTML = "❌ City not found!";
+            document.getElementById("output").innerHTML = "❌ Error: City not found!";
         });
 }
-
 
 
 
