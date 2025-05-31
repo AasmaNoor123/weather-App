@@ -1,4 +1,4 @@
-<<<<<<< HEAD
+
 function getWeather() {
     let city = document.getElementById('city').value;
     let apiKey = "1b4949d7be92ccbd520737b27c355edd";
